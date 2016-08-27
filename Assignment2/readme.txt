@@ -1,0 +1,19 @@
+A0105182R Henry Pratama Suryadi
+
+There are several classes used in the design.
+Transactions class to store the information of each transaction.
+BankAccount class to store the information of the user, including all the transactions that has been made.
+BankDatabase class to store the user accounts, in form of a BST.
+	
+3.1 Top K Transactions
+	To get the top K transactions, data will be obtained from the BankAccount class. There is a function to poll transactions one at a time from the transactions heap. Using priority queue, I am able to obtain the transaction with the biggest amount easily by polling the maximum heap 'records'. Information will be saved in an array, and then next biggest transaction will be polled. After getting all the required information, transaction will be returned to the heap to preserve the data. Function 'getTopTrans()' will return the information of top K transactions. BST in the BankDatabase class will be traversed one by one from the left leaf to get the information of each account.
+3.2 Print the total number of transactions and average amount of all transaction
+	While inserting new transactions to the BankAccount class, the amount of current transaction will be added to 'sumTrans' that saved the total amount of transaction in the BankAccount class. After all transactions has been inserted, I will get the sum of transactions from this variable. Total number of transactions can be obtained by getting the size of the transactions heap. Average amount is obtained by dividing the sum of transactions by the total number of transactions.
+3.3 Detect double transactions
+	There is variable 'latestTrans' in the BankAccount class to store the information of the latest transaction. When inserting new transaction, the time and amount will be compared to the latest transaction. If the amount is the same and the time is less than 5 minutes different, function 'insertTrans()' will return the information of the double transaction. It will return null otherwise and null will not be printed.
+3.4 Detect suspicious transactions
+	When getting the top K transactions, the information of each transaction will be saved in a separate variable. The top transaction will be marked differently from the others. Other transactions will be averaged. The average will be compared with the top transaction. If it is suspicious, it will be stored in variable 'suspicious' in the BankAccount class. Consolidation of suspicious transactions will be stored in 'suspiciousReport' variable in BankDatabase class and will be printed accordingly.
+3.5 Include the date and time of suspicious transactions
+	When a transaction is marked as suspicious, I will get the amount and time information from the Transactions object. While getting the information of the top transaction, I also get the time information to make the process more efficient.
+3.6 Print a list of top spenders, including first and last transactions and total amount spent
+	While traversing through every node in the BST tree to find the top K transactions for each customer, I will add the account to a minimum heap 'topSpenders'. This variable stored the information of the top spenders. Since only 20 accounts are needed, if the size of the heap is more than 20, I will poll the topmost element of the heap to make sure that it only store 20 accounts. After traversing the tree, information from each account will be obtained by 'getStatus()' function in the BankAccount class. The information will be arranged accordingly in a string 'result' in the 'printRecords()' function to make sure that it will be printed starting from the account with the most spending.

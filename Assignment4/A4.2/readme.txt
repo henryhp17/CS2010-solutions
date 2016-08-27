@@ -1,0 +1,2 @@
+Since only cable cost need to be minimized, the most efficient way is just to compute the minimum spanning tree of the graph to get the minimum cost. Prim's algorithm is used to compute the MST. While processing the graph for the MST, it keep track the number of edges connected to each vertices.
+After MST has been computed, the number of edges on each vertices is checked to compute the number of required additional equipments.

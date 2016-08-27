@@ -1,0 +1,3 @@
+Since the map is an undirected weighted graph, there is no special condition that can be used to improve the searching algorithm. Therefore, Dijkstra's algorithm is used to compute the shortest path to any vertices. Since there can be more than one hospitals, it is better to use the Dijkstra's algorithm with multiple sources. 
+Dijkstra's algorithm processed unvisited vertices starting from the ones which has shortest distance to any sources. Vertices is sorted using priority queue with custom distance comparator. If the computed distance is shorted than the existing distance, that vertex will be updated.
+After it has finished, another variable is used to get the indexes of houses corresponding to each hospitals.
